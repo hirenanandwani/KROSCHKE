@@ -1,7 +1,21 @@
 // Jquery Code
+var widthScreen = $(window).width();
 
-if (window.innerWidth < 800) {
+if (widthScreen > 800) {
+    $('.btn-1').addClass('btn-active');
+} else {
+    $('.btn-1').removeClass('btn-active');
 }
+
+$(window).resize(() => {
+    widthScreen = $(window).width();
+
+    if (widthScreen > 800) {
+        $('.btn-1').addClass('btn-active');
+    } else {
+        $('.btn-1').removeClass('btn-active');
+    }
+});
 
 var hamburger = true;
 
@@ -75,35 +89,33 @@ $(document).ready(() => {
 //     }
 // });
 
- if (window.innerWidth < 800) {
-     var i = document.querySelector('#btn-form-1').classList.remove('btn-center');
- }
- window.addEventListener('resize', () => {
-     if (window.innerWidth < 800) {
-         document.querySelector('#btn-form-1').classList.remove('btn-center');
-     } else {
-         document.querySelector('#btn-form-1').classList.add('btn-center');
-     }
- });
+if (widthScreen < 800) {
+    var i = document.querySelector('#btn-form-1').classList.remove('btn-center');
+}
+window.addEventListener('resize', () => {
+    if (widthScreen < 800) {
+        document.querySelector('#btn-form-1').classList.remove('btn-center');
+    } else {
+        document.querySelector('#btn-form-1').classList.add('btn-center');
+    }
+});
 
- 
- if (window.innerWidth < 800) {
+if (widthScreen < 800) {
     var i = document.querySelector('#btn-form-2').classList.remove('btn-center');
 }
 window.addEventListener('resize', () => {
-    if (window.innerWidth < 800) {
+    if (widthScreen < 800) {
         document.querySelector('#btn-form-2').classList.remove('btn-center');
     } else {
         document.querySelector('#btn-form-2').classList.add('btn-center');
     }
 });
 
-
-if (window.innerWidth < 800) {
+if (widthScreen < 800) {
     var i = document.querySelector('#btn-form-3').classList.remove('btn-center');
 }
 window.addEventListener('resize', () => {
-    if (window.innerWidth < 800) {
+    if (widthScreen < 800) {
         document.querySelector('#btn-form-3').classList.remove('btn-center');
     } else {
         document.querySelector('#btn-form-3').classList.add('btn-center');
@@ -182,18 +194,12 @@ var imge = 2;
 var size;
 
 setInterval(() => {
-    size = window.innerWidth;
+    size = widthScreen;
 }, 100);
 
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 800) {
-        document.querySelector('.brand__image-one').src = path[0];
-    }
-});
-
-if (window.innerWidth < 800) {
+if (widthScreen < 800) {
     setInterval(() => {
-        if (window.innerWidth < 800) {
+        if (widthScreen < 800) {
             document.getElementById('abt-tile-1').textContent = primary[0];
             document.getElementById('abt-tile-2').textContent = primary[1];
 
@@ -233,7 +239,7 @@ if (window.innerWidth < 800) {
     }, 2000);
 
     setInterval(() => {
-        if (window.innerWidth < 800) {
+        if (widthScreen < 800) {
             if (document.getElementById('dot-zero-brands').classList.contains('dot-active-white')) {
                 document.getElementById('dot-zero-brands').classList.remove('dot-active-white');
                 document.getElementById('dot-zero-brands').classList.remove('dot-active');
@@ -270,22 +276,7 @@ if (window.innerWidth < 800) {
     }, 2000);
 
     setInterval(() => {
-        if (window.innerWidth < 800) {
-            if (imge == 2) {
-                document.getElementById('img-1').src = img[0];
-                imge = 0;
-            } else if (imge == 0) {
-                document.getElementById('img-1').src = img[1];
-                imge = 1;
-            } else if (imge == 1) {
-                document.getElementById('img-1').src = img[2];
-                imge = 2;
-            }
-        }
-    }, 2000);
-
-    setInterval(() => {
-        if (window.innerWidth < 800) {
+        if (widthScreen < 800) {
             if (logoNum === 0) {
                 document.getElementById('benefits-img').src = logo[1];
                 document.getElementById('benefits-heading').textContent = logoHeading[1];

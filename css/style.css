@@ -52,6 +52,62 @@ body {
     min-height: 100vh;
 }
 
+.checkbox-label-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.checkbox-label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label-container input:checked ~ .custom-checkbox {
+    background-color: transparent;
+}
+
+.custom-checkbox::after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.checkbox-label-container input:checked ~ .custom-checkbox::after {
+    display: block;
+}
+
+.checkbox-label-container .custom-checkbox::after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: transparent;
+    border: 2px solid #fff;
+}
+
+.checkbox-content {
+    margin-left: 25px;
+    padding-left: 1.5rem;
+    padding: 5px 1.5rem;
+}
+
 .small-nav {
     align-items: center;
     display: none;
@@ -210,11 +266,15 @@ body {
 
 .header {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 .header__navigation {
+    z-index: 50;
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
     align-items: center;
     height: 6.2rem;
     background-color: #fff;
@@ -272,12 +332,12 @@ body {
 
 .list__link--orange:link p,
 .list__link--orange:visited p {
- margin: 0;
+    margin: 0;
 }
 
 .header__hero {
     display: flex;
-    height: calc(100% - 6.2rem);
+    height: 100%;
     background: url(../assets/demo-hero.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -291,7 +351,7 @@ body {
 }
 
 .header__hero-text-container {
-    margin-top: 12rem;
+    margin-top: 25rem;
     margin-left: 12rem;
 }
 
@@ -423,6 +483,18 @@ body {
     display: flex;
     margin-left: -1.5rem;
     align-items: center;
+}
+
+.bold-text a:link,
+.bold-text a:visited {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.bold-text a:hover,
+.bold-text a:active {
+    color: #ed7102;
 }
 
 .services__content-container svg {
@@ -950,6 +1022,11 @@ body {
     align-items: center;
 }
 
+.footer__social-links a:not(:last-child) {
+    display: inline-block;
+    margin-right: 5rem;
+}
+
 .footer__social-icon {
     fill: #fff;
     cursor: pointer;
@@ -1075,7 +1152,7 @@ body {
         font-size: 50%;
     }
     .header__hero-text-container {
-        margin-top: 22rem;
+        margin-top: 28rem;
     }
     .header__hero-text--primary {
         font-size: 4rem;
@@ -1121,6 +1198,20 @@ body {
 }
 
 @media only screen and (max-width: 800px) {
+    .custom-checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 18px;
+        width: 18px;
+        background-color: transparent;
+        border: 2px solid #fff;
+    }
+    .checkbox-content {
+        margin-left: 20px;
+        padding-left: 1.5rem;
+        padding: 5px 1.5rem;
+    }
     .dots-benefits {
         display: flex;
         position: relative;
@@ -1162,10 +1253,10 @@ body {
     .header__hero-text {
         background: none;
         width: 100%;
-        height: 60%;
+        height: 0;
     }
     .header__hero-text-container {
-        margin: 7rem 5rem;
+        margin: 5rem 5rem;
     }
 
     .header__hero-text--primary {
@@ -1179,7 +1270,7 @@ body {
         background: url('../assets/demo-hero.png');
         background-position: center;
         background-size: cover;
-        height: 40%;
+        height: 50vh;
     }
     .header-show {
         display: block;
@@ -1187,14 +1278,14 @@ body {
         top: 6.2rem;
         background-color: rgba(0, 95, 150, 0.9);
         width: 100%;
+        height: 475%;
         font-size: 2rem;
-        height: calc(50% - 7.5rem);
         padding: 2rem 0;
         box-sizing: border-box;
     }
     .list__item:not(:last-child) {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 3rem;
         margin-right: 0;
     }
     .list__item {
@@ -1203,6 +1294,7 @@ body {
         padding: 1rem;
         text-align: center;
         color: #fff;
+        font-size: 2rem;
     }
     .list__item:last-child {
         display: none;
@@ -1244,7 +1336,7 @@ body {
     .map__map-content {
         width: 100%;
         overflow-y: scroll;
-        height: 250px;
+        height: 200px;
     }
 
     .map__map-content::-webkit-scrollbar-track {
@@ -1366,7 +1458,6 @@ body {
     }
 
     .form--2 {
-        
         justify-content: center;
         align-items: center;
         width: 90%;
@@ -1553,10 +1644,10 @@ body {
     }
 
     .header__background {
-        height: 50%;
+        height: 57%;
     }
     .header__hero-text {
-        height: 50%;
+        height: 0%;
     }
     .btn:link,
     .btn:visited {
@@ -1576,8 +1667,8 @@ body {
         line-height: 1.18;
     }
     .header-show {
-        height: calc(50% - 03rem);
-        padding: 10rem 0;
+        height: 720%;
+        padding: 5rem 0;
     }
     .about__tiles {
         margin: 0;
@@ -1612,12 +1703,30 @@ body {
         width: 90%;
         margin: 0 auto;
     }
+
+    .list__item {
+        display: block;
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+        color: #fff;
+        font-size: 8rem;
+    }
     #checkbox-content {
         width: 90%;
     }
 }
 
 @media only screen and (max-width: 400px) {
+    .checkboxes-container {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .checkbox-container:not(:last-child) {
+        margin-top: 2rem;
+    }
+
     .carousel__content--primary {
         padding: 0 4rem;
     }
