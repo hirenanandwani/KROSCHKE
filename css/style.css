@@ -193,13 +193,14 @@ body {
 
 .btn:link,
 .btn:visited {
-    padding: 1.3rem 2.8rem;
+    padding: 1rem 2.8rem;
     background-color: #ed7102;
     color: #fff;
     font-size: 1.4rem;
     margin-top: 3.2rem;
     font-family: 'gotham-medium';
     transition: all 0.2s;
+    border-radius: 0;
 }
 
 .btn:hover,
@@ -329,6 +330,30 @@ body {
 .benefits__item {
     padding: 0;
     text-align: center;
+}
+
+.benefits__img.Anfahrtszeiten_Icon {
+    height: 10rem;
+    width: 10rem;
+    z-index: 100;
+}
+
+.benefits__img.Icon_Angebot {
+    height: 10rem;
+    width: 10rem;
+    z-index: 100;
+}
+
+.benefits__img.group {
+    height: 10rem;
+    width: 14rem;
+    z-index: 100;
+}
+
+.benefits__img.Icon_Carbon {
+    height: 10rem;
+    width: 15rem;
+    z-index: 100;
 }
 
 .benefits__img {
@@ -985,6 +1010,10 @@ body {
     overflow-y: scroll;
 }
 
+.banner-btn {
+    margin-left: 25px;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1200px) {
@@ -1221,7 +1250,7 @@ body {
     .map__map-content::-webkit-scrollbar-track {
         box-shadow: 0 0 6px #005f96;
     }
-    .map__map-content:::-webkit-scrollbar-thumb {
+    .map__map-content::-webkit-scrollbar-thumb {
         scrollbar-color: #005f96;
     }
 
